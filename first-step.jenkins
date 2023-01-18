@@ -1,11 +1,24 @@
 #!groovy
-/* Requires the Docker Pipeline plugin */
+// Check ub1 properties
+properties([disableConcurrentBuilds()])
+
 pipeline {
-    agent { docker { image 'python:3.10.7-alpine' } }
+    agent { 
+        label 'master'
+        }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
     stages {
-        stage('build') {
+        stage("First step") {
             steps {
-                sh 'python --version'
+                sh 'ssh root@ub1 \'hostname\''
+            }
+        }
+        stage("Second step") {
+            steps {
+                sh 'ssh root@ub1 \'uptime\''
             }
         }
     }
