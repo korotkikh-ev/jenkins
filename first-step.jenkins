@@ -1,0 +1,21 @@
+#!groovy
+//Check ub1 properties
+properties([disableConcurrentBuilds()])
+
+pipline {
+	agent {
+	    label 'master'
+		}
+	options {
+	      buildDiscarder(logRotation(numToKeepStr: '10', artifactNumToKeepStr: '10')
+	      timestamps()
+	}
+	stages {
+	     stage("First step") {
+   		 steps {
+		     sh 'ssh root@ub1 \'hostname\''
+			}
+		}	
+	}	
+ } 
+
