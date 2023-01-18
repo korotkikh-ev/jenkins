@@ -1,17 +1,12 @@
-#!groovy
-//Check ub1 properties
-properties([disableConcurrentBuilds()])
-
-pipline {
-	agent {
-	    label 'master'
-		}
-	stages {
-	     stage("First step") {
-   		 steps {
-		     sh 'ssh root@ub1 \'hostname\''
-			}
-		}	
-	}	
- }
-
+Jenkinsfile (Declarative Pipeline)
+/* Requires the Docker Pipeline plugin */
+pipeline {
+    agent { docker { image 'python:3.10.7-alpine' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
+    }
+}
