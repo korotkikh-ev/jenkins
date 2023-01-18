@@ -6,9 +6,6 @@ pipline {
 	agent {
 	    label 'master'
 		}
-	options {
-	      buildDiscarder(logRotation(numToKeepStr: '10', artifactNumToKeepStr: '10')
-	        }
 	stages {
 	     stage("First step") {
    		 steps {
@@ -16,5 +13,5 @@ pipline {
 			}
 		}	
 	}	
- } 
+ }
 
