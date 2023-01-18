@@ -8,7 +8,7 @@ pipline {
 		}
 	options {
 	      buildDiscarder(logRotation(numToKeepStr: '10', artifactNumToKeepStr: '10')
-	      timestamps()
+	      
 	}
 	stages {
 	     stage("First step") {
