@@ -13,13 +13,19 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'echo Hello world!!!!!!!!'
+                sh 'echo Hello world!'
             }
         }
         stage("Second step") {
             steps {
                 sh 'uptime'
             }
+        stage("Third step") {
+            steps {
+                sh 'pwd'
+            }
+
         }
     }
+}
 }
