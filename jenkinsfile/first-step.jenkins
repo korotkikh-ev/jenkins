@@ -20,12 +20,13 @@ pipeline {
             steps {
                 sh 'uptime'
             }
+          }
         stage("Third step") {
             steps {
                 sh 'pwd'
             }
 
-        }
+       }
     }
-}
-}
+  }
+
