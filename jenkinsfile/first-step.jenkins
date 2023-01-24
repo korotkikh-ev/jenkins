@@ -23,7 +23,7 @@ pipeline {
           }
         stage("Third step") {
             steps {
-                sh 'pwd'
+                sh 'ls -la'
             }
 
        }
